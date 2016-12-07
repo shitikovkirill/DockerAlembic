@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+
+// Tests
+Route::get('/mongo', function (){
+    echo '<pre>';
+    print_r(\App\Testmongodb::all());
+});
