@@ -8,7 +8,7 @@
         <span class="text-lg text-bold text-primary">MATERIAL ADMIN</span>
         <br/><br/>
 
-        <form class="form-horizontal" role="form" method="POST" action="{{ url(Lang::locale().'/login') }}">
+        <form class="form floating-label" role="form" method="POST" action="{{ url(Lang::locale().'/login') }}">
             {{ csrf_field() }}
 
             <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
