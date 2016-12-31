@@ -15,11 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::auth();
 
+Auth::routes();
 
+Route::get('/home', 'HomeController@index');
 
-// Tests
-Route::get('/mongo', function (){
-    echo '<pre>';
-    print_r(\App\Testmongodb::all());
-});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

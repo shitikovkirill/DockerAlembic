@@ -33,20 +33,7 @@
 
     <!-- BEGIN CONTENT-->
     <div id="content">
-
-        <!-- BEGIN BLANK SECTION -->
-        <section>
-            @section('content-header')
-            <div class="section-header">
-                @include('layouts.parts.content.breadcrumb')
-            </div><!--end .section-header -->
-            @show
-            <div class="section-body">
-                @yield('content')
-            </div><!--end .section-body -->
-        </section>
-
-        <!-- BEGIN BLANK SECTION -->
+        @yield('content')
     </div><!--end #content-->
     <!-- END CONTENT -->
 

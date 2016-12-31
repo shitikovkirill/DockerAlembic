@@ -8,7 +8,7 @@
     <div class="card contain-sm style-transparent">
         <div class="card-body">
             <div class="row">
-                @yield('login-content')
+                @yield('content')
             </div><!--end .row -->
         </div><!--end .card-body -->
     </div><!--end .card -->
