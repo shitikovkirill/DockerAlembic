@@ -61,4 +61,9 @@ elixir((mix) => {
         'resources/assets/fonts',
         'public/assets/css'
     );
+
+    mix.copy(
+        'resources/assets/img',
+        'public/assets/img'
+    );
 });
