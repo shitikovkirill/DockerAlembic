@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-3 col-xs-5">
                     <img class="img-circle border-white border-xl img-responsive auto-width" src="../../assets/img/avatar1.jpg?1403934956" alt="" />
-                    <h3>Daniel Johnson<br/><small>Consultant at CodeCovers</small></h3>
+                    <h3>{{ $user->name }}<br/><small>Consultant at CodeCovers</small></h3>
                 </div><!--end .col -->
                 <div class="col-md-9 col-xs-7">
                     <div class="width-3 text-center pull-right">
