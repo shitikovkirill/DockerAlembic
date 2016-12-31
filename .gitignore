@@ -9,3 +9,4 @@ Homestead.yaml
 /access.log
 /error.log
 html/*
+public/assets/*
