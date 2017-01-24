@@ -2,7 +2,6 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\Language;
 use Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 use Illuminate\Session\Middleware\StartSession;
@@ -18,7 +17,6 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middleware = [
-        Language::class,
         StartSession::class,
         ShareErrorsFromSession::class,
         CheckForMaintenanceMode::class,
