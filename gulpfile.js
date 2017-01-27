@@ -20,7 +20,7 @@ elixir((mix) => {
             'bootstrap.less',
             'materialadmin.less',
         ],
-        'public/assets/css/style.css'
+        'public/assets/css/theme-default/style.css'
     );
 
     mix.scripts(
@@ -58,8 +58,13 @@ elixir((mix) => {
     );
 
     mix.copy(
-        'resources/assets/fonts',
-        'public/assets/css'
+        'resources/assets/css/theme-default',
+        'public/assets/css/theme-default'
+    );
+
+    mix.copy(
+        'resources/assets/css/fonts',
+        'public/assets/css/fonts'
     );
 
     mix.copy(
