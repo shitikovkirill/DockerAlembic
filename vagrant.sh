@@ -1,28 +1,23 @@
 #!/bin/bash
 
-SITE_NAME="laravelsite"
-config_file="/etc/nginx/conf.d/$SITE_NAME.conf"
-project_path="/var/www/$SITE_NAME"
-
 echo "-------------------------------------------------"
+echo "User: $USER"
 echo "Site name: $SITE_NAME"
-echo "Config file: $config_file"
-echo "Project path: $project_path"
+echo "Config file: $CONFIG_FILE"
+echo "Project path: $PROJECT_PATH"
 echo "-------------------------------------------------"
 
 function create_config_file {
-    config_file=$1
-    site_name=$2
+    site_name=$1
+    config_file=$2
+    project_path=$3
 
-    echo "Config file: $config_file"
-    echo "Site name: $site_name"
-
-    cat << EOF > $config_file
+    cat << EOF > $CONFIG_FILE
 server {
     listen 80 default_server;
     listen [::]:80 default_server ipv6only=on;
 
-    root /var/www/$site_name/public;
+    root $project_path/public;
     index index.php index.html index.htm;
     access_log /var/log/nginx/$site_name.log;
     error_log /var/log/nginx/$site_name.error.log;
@@ -45,15 +40,16 @@ server {
 EOF
 }
 
+apt-get update
 
-if [ -f "$config_file" ]
+if [ -f "$CONFIG_FILE" ]
 then
     echo "Update nginx config"
-    rm $config_file
-    create_config_file $config_file $SITE_NAME
+    rm $CONFIG_FILE
+    create_config_file $SITE_NAME $CONFIG_FILE $PROJECT_PATH
 else
     echo "Create nginx config"
-    create_config_file $config_file $SITE_NAME
+    create_config_file $SITE_NAME $CONFIG_FILE $PROJECT_PATH
 fi
 
 echo "Restart nginx"
