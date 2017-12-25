@@ -27,6 +27,7 @@ sudo su - $USER
 
 #npm_path=$(command -v nvm)
 echo "---- NPM path: $NVM_DIR ----"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 echo "---- Install NODE ----"
 nvm install node
