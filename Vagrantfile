@@ -8,6 +8,6 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8888
   config.vm.synced_folder ".", "/var/www/laravelsite", disabled: false, nfs: true
 
-  config.vm.provision :shell, path: "bootstrap.sh"
+  config.vm.provision :shell, path: "vagrant.sh"
 
 end
