@@ -1,6 +1,14 @@
 #!/bin/bash
 
 SITE_NAME="laravelsite"
+config_file="/etc/nginx/conf.d/$SITE_NAME.conf"
+project_path="/var/www/$SITE_NAME"
+
+echo "-------------------------------------------------"
+echo "Site name: $SITE_NAME"
+echo "Config file: $config_file"
+echo "Project path: $project_path"
+echo "-------------------------------------------------"
 
 function create_config_file {
     config_file=$1
@@ -37,8 +45,6 @@ server {
 EOF
 }
 
-echo $SITE_NAME
-config_file="/etc/nginx/conf.d/$SITE_NAME.conf"
 
 if [ -f "$config_file" ]
 then

@@ -9,5 +9,6 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/var/www/laravelsite", disabled: false, nfs: true
 
   config.vm.provision :shell, path: "vagrant.sh"
+  config.vm.provision :shell, privileged: false, path: "vagrant_user.sh"
 
 end
