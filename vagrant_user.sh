@@ -32,6 +32,7 @@ echo "---- NPM path: $NVM_DIR ----"
 echo "---- Install NODE ----"
 nvm install node
 npm install
+npm run dev
 
 echo "---- Install bower ----"
 npm install -g bower
