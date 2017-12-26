@@ -44,11 +44,11 @@ apt-get update
 
 if [ -f "$CONFIG_FILE" ]
 then
-    echo "---- Update nginx config ----"
+    echo "#### Update nginx config ####"
     rm $CONFIG_FILE
     create_config_file $SITE_NAME $CONFIG_FILE $PROJECT_PATH
 else
-    echo "---- Create nginx config ----"
+    echo "#### Create nginx config ####"
     create_config_file $SITE_NAME $CONFIG_FILE $PROJECT_PATH
 fi
 

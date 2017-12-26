@@ -32,7 +32,6 @@ echo "---- NPM path: $NVM_DIR ----"
 echo "---- Install NODE ----"
 nvm install node
 npm install
-npm run dev
 
 echo "---- Install bower ----"
 npm install -g bower
@@ -40,8 +39,21 @@ npm install -g bower
 bower_file="bower.json"
 if [ -f "$bower_file" ]
 then
-    echo "---- Install bower dependency ----"
+    echo "#### Install bower dependency ####"
     bower install
 else
-    echo "---- No bower.json present ----"
+    echo "#### No bower.json present ####"
 fi
+
+echo "---- Create ENV----"
+if [ -f ".env" ]
+then
+    echo "#### Created ####"
+    cp .env.example .env
+else
+    echo "#### File already exist ####"
+fi
+
+
+echo "---- Generate application key----"
+php artisan key:generate

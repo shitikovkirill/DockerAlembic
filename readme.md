@@ -19,4 +19,5 @@ vagrant plugin install vagrant-hostsupdater
 
 ```bash
 vagrant up
+npm run dev
 ```

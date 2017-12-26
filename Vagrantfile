@@ -19,6 +19,7 @@ Vagrant.configure("2") do |config|
   config.vm.hostname = "laravelsite.dev"
 
   config.vm.network "forwarded_port", guest: 80, host: 8888
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
   config.vm.synced_folder ".", "/var/www/laravelsite", disabled: false, nfs: true
 
   config.vm.provision :shell, inline: $env_variables
