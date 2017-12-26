@@ -9,7 +9,7 @@ echo "Project path: $PROJECT_PATH"
 echo "-------------------------------------------------"
 
 echo "---- Install composer ----"
-cd $PROJECT_PATH
+cd "$PROJECT_PATH"
 composer install
 
 echo "---- Install NVM ----"
