@@ -48,10 +48,10 @@ fi
 echo "---- Create ENV----"
 if [ -f ".env" ]
 then
-    echo "#### Created ####"
-    cp .env.example .env
-else
     echo "#### File already exist ####"
+else
+    echo "#### Created ####"
+    cp $PROJECT_PATH/.env.example $PROJECT_PATH/.env
 fi
 
 
