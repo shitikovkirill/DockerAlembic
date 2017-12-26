@@ -40,7 +40,6 @@ server {
 EOF
 }
 
-apt-get update
 
 if [ -f "$CONFIG_FILE" ]
 then
@@ -54,3 +53,22 @@ fi
 
 echo "---- Restart nginx ----"
 service nginx restart
+
+echo "---- Install PostgreSQL 10 ----"
+wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -
+sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ jessie-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
+
+apt-get update
+apt-get -y install postgresql postgresql-contrib
+
+echo "---- Creating a New User and Database ----"
+echo "Database: $DB_DATABASE"
+echo "Username: $DB_USERNAME"
+echo "Password: $DB_PASSWORD"
+echo "------------------------------------------"
+
+sudo -u postgres createuser $DB_USERNAME
+sudo -u postgres createdb $DB_DATABASE
+
+sudo -u postgres psql -c "ALTER USER $DB_USERNAME WITH ENCRYPTED PASSWORD '$DB_PASSWORD';"
+sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE $DB_DATABASE TO $DB_USERNAME;"
