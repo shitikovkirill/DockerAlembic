@@ -4,11 +4,11 @@
     <!-- BEGIN PROFILE HEADER -->
     <section class="full-bleed">
         <div class="section-body style-default-dark force-padding text-shadow">
-            <div class="img-backdrop" style="background-image: url('{{ asset(env('THEME')) }}/img/img16.jpg')"></div>
+            <div class="img-backdrop" style="background-image: url('{{ secure_asset(env('THEME')) }}/img/img16.jpg')"></div>
             <div class="overlay overlay-shade-top stick-top-left height-3"></div>
             <div class="row">
                 <div class="col-md-3 col-xs-5">
-                    <img class="img-circle border-white border-xl img-responsive auto-width" src="{{ asset(env('THEME')) }}/img/avatar1.jpg?1403934956" alt="" />
+                    <img class="img-circle border-white border-xl img-responsive auto-width" src="{{ secure_asset(env('THEME')) }}/img/avatar1.jpg?1403934956" alt="" />
                     <h3>{{ $user->name }}<br/><small>Consultant at CodeCovers</small></h3>
                 </div><!--end .col -->
                 <div class="col-md-9 col-xs-7">
@@ -98,7 +98,7 @@
                                 <div class="timeline-entry">
                                     <div class="card style-default-light">
                                         <div class="card-body small-padding">
-                                            <img class="img-circle img-responsive pull-left width-1" src="{{ asset(env('THEME')) }}/img/avatar2.jpg?1404026449" alt="" />
+                                            <img class="img-circle img-responsive pull-left width-1" src="{{ secure_asset(env('THEME')) }}/img/avatar2.jpg?1404026449" alt="" />
                                             <span class="text-medium">Meeting in the <span class="text-primary">conference room</span></span><br/>
                                             <span class="opacity-50">
 															Saturday, Juli 29, 2014
@@ -106,7 +106,7 @@
                                         </div>
                                         <div class="card-body">
                                             <p><em>Walked all the way home...</em></p>
-                                            <img class="img-responsive" src="{{ asset(env('THEME')) }}/img/img14.jpg?1404589160" alt="" />
+                                            <img class="img-responsive" src="{{ secure_asset(env('THEME')) }}/img/img14.jpg?1404589160" alt="" />
                                         </div>
                                     </div>
                                 </div><!--end .timeline-entry -->
@@ -135,7 +135,7 @@
                                 <li class="tile">
                                     <a class="tile-content ink-reaction" href="#2">
                                         <div class="tile-icon">
-                                            <img src="{{ asset(env('THEME')) }}/img/avatar2.jpg?1404026449" alt="" />
+                                            <img src="{{ secure_asset(env('THEME')) }}/img/avatar2.jpg?1404026449" alt="" />
                                         </div>
                                         <div class="tile-text">Abbey Johnson<small>Lorem ipsum dolor sit amet, consectetur adipisicing</small></div>
                                     </a>
@@ -143,7 +143,7 @@
                                 <li class="tile">
                                     <a class="tile-content ink-reaction">
                                         <div class="tile-icon">
-                                            <img src="{{ asset(env('THEME')) }}/img/avatar4.jpg?1404026791" alt="" />
+                                            <img src="{{ secure_asset(env('THEME')) }}/img/avatar4.jpg?1404026791" alt="" />
                                         </div>
                                         <div class="tile-text">Alex Nelson<small>Proin nonummy, lacus eget pulvinar lacinia</small></div>
                                     </a>
@@ -151,7 +151,7 @@
                                 <li class="tile">
                                     <a class="tile-content ink-reaction">
                                         <div class="tile-icon">
-                                            <img src="{{ asset(env('THEME')) }}/img/avatar11.jpg?1404026774" alt="" />
+                                            <img src="{{ secure_asset(env('THEME')) }}/img/avatar11.jpg?1404026774" alt="" />
                                         </div>
                                         <div class="tile-text">Mary Peterson<small>Nulla gravida orci a odio</small></div>
                                     </a>
@@ -159,7 +159,7 @@
                                 <li class="tile">
                                     <a class="tile-content ink-reaction">
                                         <div class="tile-icon">
-                                            <img src="{{ asset(env('THEME')) }}/img/avatar7.jpg?1404026721" alt="" />
+                                            <img src="{{ secure_asset(env('THEME')) }}/img/avatar7.jpg?1404026721" alt="" />
                                         </div>
                                         <div class="tile-text">Trevor Hanson<small>Nullam varius, turpis et commodo pharetra</small></div>
                                     </a>
