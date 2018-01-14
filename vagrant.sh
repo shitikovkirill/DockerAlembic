@@ -7,6 +7,15 @@ echo "Config file: $CONFIG_FILE"
 echo "Project path: $PROJECT_PATH"
 echo "-------------------------------------------------"
 
+function create_certificate {
+    site_name=$1
+    openssl req -newkey rsa:2048 -x509 -nodes -keyout "$site_name.key" \
+     -new -out "$site_name.cert" -subj /CN=$site_name -reqexts \
+     SAN -extensions SAN -config \
+     <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:$site_name")) \
+     -sha256 -days 3650
+
+}
 function create_config_file {
     site_name=$1
     config_file=$2
@@ -14,15 +23,17 @@ function create_config_file {
 
     cat << EOF > $CONFIG_FILE
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server ipv6only=on;
+    listen			443 ssl;
+    server_name $site_name.dev www.$site_name.dev;
+
+    ssl    on;
+    ssl_certificate        /etc/nginx/ssl/$site_name.cert;
+    ssl_certificate_key    /etc/nginx/ssl/$site_name.key;
 
     root $project_path/public;
     index index.php index.html index.htm;
     access_log /var/log/nginx/$site_name.log;
     error_log /var/log/nginx/$site_name.error.log;
-
-    server_name $site_name.dev www.$site_name.dev;
 
     location / {
         try_files \$uri \$uri/ /index.php?\$query_string;
@@ -37,9 +48,28 @@ server {
         include fastcgi_params;
     }
 }
+
+# Redirect to ssl
+server {
+    listen 80;
+    server_name $site_name.dev www.$site_name.dev;
+
+    return 301 https://$site_name.dev\$request_uri;
+}
 EOF
 }
 
+echo "---- Create ssl certificate ----"
+mkdir /etc/nginx/ssl
+
+if [ -f "/etc/nginx/ssl/$SITE_NAME.key" ]
+then
+    echo "#### Certificate already exist ####"
+else
+    echo "#### Create Certificate ####"
+    cd /etc/nginx/ssl
+    create_certificate $SITE_NAME
+fi
 
 if [ -f "$CONFIG_FILE" ]
 then
