@@ -7,6 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Demo
+[life demo](https://vast-springs-51723.herokuapp.com/)
+
 ## Prepare
 
 Need install hosts updater plugin for Vagrant
@@ -19,5 +22,13 @@ vagrant plugin install vagrant-hostsupdater
 
 ```bash
 vagrant up
+```
+[laravelsite.dev](https://laravelsite.dev/)
+
+## Development
+For running css and js development.
+```bash
+vagrant ssh
+cd /var/www/laravelsite
 npm run dev
 ```
