@@ -59,6 +59,36 @@ server {
 EOF
 }
 
+echo "---- Install PHP 7.2 ----"
+cd php-src
+git pull -r
+git checkout HEAD -f
+git checkout PHP-7.2
+make distclean
+./buildconf -f
+./cn
+make
+make install
+newphp 72 debug
+
+echo "---- Install Xdebug ----"
+cd ~/src/xdebug
+git pull
+./rebuild.sh
+mkdir /etc/php72
+echo "zend_extension=\"xdebug.so\"" > /etc/php72/php.ini
+
+mkdir /etc/php72/conf.d
+cat << EOF > /etc/php72/conf.d/xdebug.ini
+xdebug.idekey="PHPStorm"
+xdebug.remote_enable = 1
+xdebug.remote_connect_back = 1
+xdebug.remote_autostart = 1
+xdebug.remote_port = 9000
+xdebug.remote_handler=dbgp
+EOF
+newphp 72 debug
+
 echo "---- Create ssl certificate ----"
 mkdir /etc/nginx/ssl
 
