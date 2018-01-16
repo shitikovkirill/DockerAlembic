@@ -8,6 +8,18 @@ echo "Config file: $CONFIG_FILE"
 echo "Project path: $PROJECT_PATH"
 echo "-------------------------------------------------"
 
+echo "---- Install PHP 7.2 ----"
+cd php-src
+git pull -r
+git checkout HEAD -f
+git checkout PHP-7.2
+make distclean
+./buildconf -f
+./cn
+make
+sudo make install
+newphp 72 debug
+
 echo "---- Install composer ----"
 cd "$PROJECT_PATH"
 composer install
