@@ -72,7 +72,7 @@ make install
 newphp 72 debug
 
 echo "---- Install Xdebug ----"
-cd ~/src/xdebug
+cd /home/vagrant/src/xdebug
 git pull
 ./rebuild.sh
 mkdir /etc/php72
