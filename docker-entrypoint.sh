@@ -7,7 +7,6 @@ fi
 
 if [[ "$@" = "bash" ]]
 then
-    poetry shell
     exec "$@"
 else
     poetry run "$@"
