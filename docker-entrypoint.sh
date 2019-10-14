@@ -9,5 +9,5 @@ if [[ "$@" = "bash" ]]
 then
     exec "$@"
 else
-    poetry run "$@"
+    alembic "$@"
 fi
